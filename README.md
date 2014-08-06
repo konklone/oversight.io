@@ -6,7 +6,26 @@ A small website (in progress!) at [oversight.io](https://oversight.io).
 
 ### Getting started
 
+#### Prerequisites
+
 It's an [Express 4.x app](http://expressjs.com) in [Node](http://nodejs.org/) (JavaScript). It uses [Elasticsearch](http://elasticsearch.org/) as a search engine. Install all those things.
+
+#### Configuring
+
+A sample configuration file exists in `config/`. Copy it to
+`config/config.json` and fill in values specific to your system.
+
+#### Initializing the data
+
+1. Run `bundle install && rake -l ./tasks/elasticsearch.rake elasticsearch:init`
+2. Run `??????????????`, which places the report data in `data/`
+3. Run `node tasks/inspectors.js`
+
+#### Running the App
+
+```bash
+$ node app.json
+```
 
 ### License
 
