@@ -13,4 +13,8 @@ module.exports = {
     return text.replace(/\"/g, "&quot;");
   }
 
+  report_url: function(report) {
+    return "/report/" + report.inspector + "/" + report.report_id;
+  }
+
 }

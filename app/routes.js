@@ -47,6 +47,21 @@ module.exports = {
         report: null
       });
     })
+  },
+
+  sitemap: function(req, res) {
+    search('*').then(function(results) {
+      res.render("sitemap.xml", {
+        root_url: config.root_url,
+        results:  results
+      });
+    }, function(err) {
+      console.log("Noooo!");
+      res.render("sitemap.xml", {
+        root_url: config.root_url,
+        results:  []
+      });
+    });
   }
 
 };

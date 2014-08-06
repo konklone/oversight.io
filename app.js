@@ -9,6 +9,7 @@ if (isNaN(port)) port = 3000;
 
 // app middleware/settings
 app.engine('.html', require('ejs').__express);
+app.engine('.xml',  require('ejs').__express);
 app.enable('trust proxy')
   .use(require('body-parser').json())
   .use(require('body-parser').urlencoded({extended: false}))
@@ -32,6 +33,7 @@ app.locals.config = require("./config/config");
 
 var routes = require("./app/routes");
 app.get('/', routes.index);
+app.get('/sitemap.xml', routes.sitemap);
 app.get('/reports', routes.reports);
 app.get('/report/:inspector/:report_id', routes.report);
 
