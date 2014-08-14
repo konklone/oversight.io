@@ -18,7 +18,7 @@ A sample configuration file exists in `config/`. Copy it to
 #### Initializing the data
 
 1. Run `bundle install && rake -l ./tasks/elasticsearch.rake elasticsearch:init`
-2. Run `??????????????`, which places the report data in `data/`
+2. Run `git submodule update --init` to load all IG reports into `data/`.
 3. Run `node tasks/inspectors.js`
 
 #### Running the App
