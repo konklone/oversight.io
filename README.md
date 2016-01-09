@@ -63,6 +63,10 @@ cp config/config.yaml.example config/config.yaml
 
 You probably don't need to make any changes to `config.yaml`. It looks for Elasticsearch at `http://localhost:9200` by default, and for IG report data in the `data` directory you symlinked above.
 
+#### Compiling CSS
+
+Grunt is used to download web fonts, combine files, and minify style sheets. First, install Grunt with ```sudo npm install -g grunt-cli```. You can build the CSS by running ```grunt```, or continuously rebuild the CSS as you make changes by running ```grunt watch```.
+
 #### Running the app
 
 Launch the app:

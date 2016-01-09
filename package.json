@@ -43,6 +43,11 @@
     "js-yaml": "*"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-goog-webfont-dl": "^0.1.2",
     "intercept-stdout": "*",
     "jshint": "*",
     "tv4": "*"
