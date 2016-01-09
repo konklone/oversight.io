@@ -31,6 +31,9 @@ def links():
 def dependencies():
   run("cd %s && npm install" % version_path)
 
+def build():
+  run("cd %s && grunt" % version_path)
+
 # TODO: why cp instead of ln?
 def make_current():
   run('rm -rf %s && cp -r %s %s' % (current_path, version_path, current_path))
@@ -60,6 +63,7 @@ def deploy():
   execute(checkout)
   execute(links)
   execute(dependencies)
+  execute(build)
   execute(make_current)
   execute(restart)
   execute(cleanup)
@@ -68,5 +72,6 @@ def deploy_cold():
   execute(checkout)
   execute(links)
   execute(dependencies)
+  execute(build)
   execute(make_current)
   execute(start)

@@ -3,6 +3,10 @@
 config.yaml
 /data
 /public/sitemap
+/public/fonts
+/public/css/fonts.css
+/public/css/all.min.css
+/public/css/all.min.css.map
 *.log
 *.pyc
 /node_modules
