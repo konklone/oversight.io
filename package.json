@@ -41,7 +41,7 @@
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
     "numeral": "^1.5.3",
-    "wintersmith": "^2.3.1",
+    "wintersmith": "git+https://github.com/divergentdave/wintersmith.git#master",
     "wintersmith-ejs": "^0.1.4"
   },
   "devDependencies": {
