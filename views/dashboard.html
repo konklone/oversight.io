@@ -83,7 +83,7 @@
                 <% if (http_error.status_code) { %>
                   Error code <%= http_error.status_code %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
                 <% } else { %>
-                  Connection error from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
+                  <%= http_error.exception_name %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
                 <% } %>
               <% } %>
             <% } %>
