@@ -196,6 +196,19 @@
         "statutory_reference": "10 U.S.C. \u00A7 3020(a)"
     },
     {
+        "active": false,
+        "agencies": ["U.S. Commission on Civil Rights"],
+        "established_year": 2011,
+        "homepage_url": "http://www.usccr.gov/OIG/index.php",
+        "hotline": [
+        ],
+        "name": "U.S. Commission on Civil Rights, Office of Inspector General",
+        "publishes_reports": true,
+        "short_name": "U.S. Commission on Civil Rights",
+        "slug": "ccr",
+        "statutory_reference": "Pub. L. No. 112-55, Title IV"
+    },
+    {
         "active": true,
         "agencies": ["Commodity Futures Trading Commission"],
         "established_year": 1988,
