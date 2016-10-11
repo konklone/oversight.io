@@ -668,7 +668,7 @@
     },
     {
         "active": true,
-        "agencies": ["Environmental Protection Agency"],
+        "agencies": ["Environmental Protection Agency", "Chemical Safety and Hazard Investigation Board"],
         "established_year": 1978,
         "homepage_url": "http://www.epa.gov/oig",
         "hotline": [
