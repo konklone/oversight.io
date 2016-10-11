@@ -11,6 +11,7 @@ var request = require("request");
 var inspectors = require("../config/inspectors.json");
 
 var urls = {
+    abilityone: "http://www.abilityone.gov/images/commission_logo.png",
     agriculture: "https://upload.wikimedia.org/wikipedia/commons/0/0e/USDA_logo.svg",
     airforce: "https://upload.wikimedia.org/wikipedia/commons/6/69/USAF_logo.png",
     amtrak: "https://pbs.twimg.com/profile_images/460870025516048384/qb-Dz6jD.jpeg",

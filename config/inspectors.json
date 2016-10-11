@@ -1,5 +1,18 @@
 [
     {
+        "active": false,
+        "agencies": ["Committee for Purchase From People Who Are Blind or Severely Disabled"],
+        "established_year": 2015,
+        "homepage_url": null,
+        "hotline": [
+        ],
+        "name": "Committee for Purchase From People Who Are Blind or Severely Disabled, Office of Inspector General",
+        "publishes_reports": false,
+        "short_name": "AbilityOne",
+        "slug": "abilityone",
+        "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
+    },
+    {
         "active": true,
         "agencies": ["Department of Agriculture"],
         "established_year": 1978,
