@@ -24,7 +24,6 @@ module.exports = function(app) {
 
   app.get('/reports', function(req, res) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
-    res.header("Referrer-Policy", "no-referrer, strict-origin");
 
     search(query_obj).then(function(results) {
       res.render("reports.html", {
@@ -45,7 +44,6 @@ module.exports = function(app) {
   app.get('/reports/featured', function(req, res) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
     query_obj.featured = true;
-    res.header("Referrer-Policy", "no-referrer, strict-origin");
 
     search(query_obj).then(function(results) {
       res.render("reports.html", {
@@ -66,7 +64,6 @@ module.exports = function(app) {
   app.get('/reports/unreleased', function(req, res) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
     query_obj.unreleased = true;
-    res.header("Referrer-Policy", "no-referrer, strict-origin");
 
     search(query_obj).then(function(results) {
       res.render("reports.html", {
