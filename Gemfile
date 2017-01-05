@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'elasticsearch'
+gem 'elasticsearch', '~> 2'
 gem 'big_sitemap'
 
 gem 'listen', '~> 2.8'
