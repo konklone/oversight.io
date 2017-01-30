@@ -15,6 +15,7 @@ Module.new do
   @device_name = '/dev/xvdf'
   @subnet = 'subnet-ae40b184'
   @web_security_group = 'sg-72ba4108'
+  @scraper_security_group = 'sg-db5e2ba2'
   @route53_zone = 'Z373JK35FYSEGP'
 
   @ami_release = 'xenial'
@@ -294,10 +295,45 @@ Module.new do
     end
 
     namespace :ssh do
-      # TODO: Update SSH rules in security groups with local IP address
+      def self.update_security_group(sg_id)
+        public_ip = nil
+        Net::HTTP.start("diagnostic.opendns.com", 443,
+                        :use_ssl => true,
+                        :verify_mode => OpenSSL::SSL::VERIFY_PEER) do |http|
+          request = Net::HTTP::Get.new("/myip")
+          response = http.request(request)
+          if response.code != "200" then
+            raise "Couldn't fetch this computer's public IP address, got a status code of #{response.code}"
+          end
+          public_ip = response.body
+        end
+        cidr = public_ip + "/32"
 
-      def self.ssh(dns_name)
-        exec("ssh", "ubuntu@#{dns_name}")
+        flag = false
+        sg = @ec2.security_group(sg_id)
+        sg.ip_permissions.each do |rule|
+          if rule.ip_protocol == "tcp" && rule.from_port == 22 && rule.to_port == 22
+            rule.ip_ranges.each do |range|
+              if range.cidr_ip == cidr
+                flag = true
+              end
+            end
+          end
+        end
+
+        if not flag
+          puts "Updating security group for SSH access"
+          sg.authorize_ingress({
+            ip_protocol: "tcp",
+            from_port: 22,
+            to_port: 22,
+            cidr_ip: cidr
+          })
+        end
+      end
+
+      def self.ssh(instance)
+        exec("ssh", "ubuntu@#{instance.public_dns_name}")
       end
 
       def self.get_instances_with_role(filter_role)
@@ -338,7 +374,8 @@ Module.new do
       task scraper: :environment do
         instances = get_instances_with_role("scraper")
         if instances.length > 0
-          ssh(instances[0].public_dns_name)
+          update_security_group(@scraper_security_group)
+          ssh(instances[0])
         else
           print "Couldn't find a running scraper instance"
         end
@@ -349,7 +386,8 @@ Module.new do
         instances = get_instances_with_role("web")
         instances = filter_instances_by_dns_record(instances, "staging.oversight.garden")
         if instances.length > 0
-          ssh(instances[0].public_dns_name)
+          update_security_group(@web_security_group)
+          ssh(instances[0])
         else
           print "Couldn't find a running staging web instance"
         end
@@ -360,7 +398,8 @@ Module.new do
         instances = get_instances_with_role("web")
         instances = filter_instances_by_dns_record(instances, "oversight.garden")
         if instances.length > 0
-          ssh(instances[0].public_dns_name)
+          update_security_group(@web_security_group)
+          ssh(instances[0])
         else
           print "Couldn't find a running production web instance"
         end
