@@ -292,5 +292,79 @@ Module.new do
 
       puts "DNS record for oversight.garden updated"
     end
+
+    namespace :ssh do
+      # TODO: Update SSH rules in security groups with local IP address
+
+      def self.ssh(dns_name)
+        exec("ssh", "ubuntu@#{dns_name}")
+      end
+
+      def self.get_instances_with_role(filter_role)
+        instances = []
+        @ec2.instances.each do |instance|
+          if instance.state.name == "running"
+            role = ""
+            instance.tags.each do |tag|
+              if tag.key == "role"
+                role = tag.value
+              end
+            end
+            if role == filter_role
+              instances.push instance
+            end
+          end
+        end
+        instances
+      end
+
+      def self.filter_instances_by_dns_record(instances_in, dns)
+        filter_ip = @route53.test_dns_answer({
+          hosted_zone_id: @route53_zone,
+          record_name: dns,
+          record_type: "A",
+        }).record_data[0]
+
+        instances_out = []
+        instances_in.each do |instance|
+          if instance.public_ip_address == filter_ip
+            instances_out.push instance
+          end
+        end
+        instances_out
+      end
+
+      desc "SSH into the scraper instance"
+      task scraper: :environment do
+        instances = get_instances_with_role("scraper")
+        if instances.length > 0
+          ssh(instances[0].public_dns_name)
+        else
+          print "Couldn't find a running scraper instance"
+        end
+      end
+
+      desc "SSH into the staging web instance"
+      task staging: :environment do
+        instances = get_instances_with_role("web")
+        instances = filter_instances_by_dns_record(instances, "staging.oversight.garden")
+        if instances.length > 0
+          ssh(instances[0].public_dns_name)
+        else
+          print "Couldn't find a running staging web instance"
+        end
+      end
+
+      desc "SSH into the production web instance"
+      task production: :environment do
+        instances = get_instances_with_role("web")
+        instances = filter_instances_by_dns_record(instances, "oversight.garden")
+        if instances.length > 0
+          ssh(instances[0].public_dns_name)
+        else
+          print "Couldn't find a running production web instance"
+        end
+      end
+    end
   end
 end
