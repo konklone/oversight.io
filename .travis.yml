@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "6"
-sudo: true
+sudo: required
 addons:
   apt:
     packages:
@@ -22,6 +22,5 @@ script:
   - bash tasks/tests
   - rake sitemap:generate config=test/config.yaml
   - "rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp check"
-sudo: false
 notifications:
   email: false
