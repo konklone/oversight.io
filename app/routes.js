@@ -318,7 +318,8 @@ function search(query_obj) {
       "pre_tags": ["<b>"],
       "post_tags": ["</b>"],
       "fields": {
-        "*": {}
+        "text": {},
+        "summary": {}
       },
       "order": "score",
       "fragment_size": 500
