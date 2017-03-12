@@ -7,7 +7,7 @@ var config = require("../config/config"),
     yaml = require('js-yaml');
 
 var esConfig = {
-  apiVersion: "5.1",
+  apiVersion: "5.0",
   host: {
     host: config.elasticsearch.host,
     port: config.elasticsearch.port
