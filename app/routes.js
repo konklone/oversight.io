@@ -338,8 +338,7 @@ function search(query_obj) {
     } else if (query_obj.inspector.length > 1) {
       filters.push({
         "terms": {
-          "inspector": query_obj.inspector,
-          "execution": "or"
+          "inspector": query_obj.inspector
         }
       });
     }
