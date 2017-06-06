@@ -56,7 +56,7 @@
     "request": "^2.67.0",
     "tape": "^4.6.0",
     "tv4": "^1.2.7",
-    "webdriverio": "^4.0.4",
+    "webdriverio": "^4.1.0",
     "xmldom": "^0.1.22",
     "xpath": "0.0.24"
   }
