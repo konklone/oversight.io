@@ -8,6 +8,6 @@ gem 'sass'
 gem 'bourbon'
 gem 'neat'
 
-gem 'aws-sdk', '>= 2.5.7'
+gem 'aws-sdk', '>= 2.7.15'
 gem 'faraday_middleware-aws-signers-v4'
 gem 'acme-client'
