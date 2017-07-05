@@ -13,6 +13,7 @@ before_install:
 - npm install -g npm@4
 - npm install -g greenkeeper-lockfile@1
 - npm config set spin false
+- npm cache clean
 - rvm install 2.4.1
 install:
 - npm install
