@@ -153,11 +153,11 @@ Module.new do
           device_index: 0,
           associate_public_ip_address: true,
           subnet_id: @subnet,
+          groups: [@web_security_group]
         }],
         iam_instance_profile: {
           arn: @web_iam_instance_profile
-        },
-        security_groups: [@web_security_group]
+        }
       })
       puts "Created instance #{instance[0].id}"
 
