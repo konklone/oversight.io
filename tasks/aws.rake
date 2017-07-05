@@ -157,18 +157,18 @@ Module.new do
         iam_instance_profile: {
           arn: @web_iam_instance_profile
         },
-        security_groups: [@web_security_group],
-        tag_specifications: [{
-          resource_type: "instance",
-          tags: [{
-            key: 'role',
-            value: 'web',
-          }]
-        }]
+        security_groups: [@web_security_group]
       })
       puts "Created instance #{instance[0].id}"
 
       sleep 15
+
+      instance.batch_create_tags({
+        tags: [{
+          key: 'role',
+          value: 'web',
+        }]
+      })
 
       puts "Waiting for instance to pass status checks"
       @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
