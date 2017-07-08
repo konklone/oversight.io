@@ -37,7 +37,7 @@ Module.new do
   end
 
   def self.get_ipv6_address(instance_id)
-    response = @ec2_client.describe_instances({instance_ids: [inatance_id]})
+    response = @ec2_client.describe_instances({instance_ids: [instance_id]})
     response.reservations[0].instances[0].network_interfaces[0].ipv_6_addresses[0].ipv_6_address
   end
 
