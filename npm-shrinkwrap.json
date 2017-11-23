@@ -6665,9 +6665,9 @@
       "dev": true
     },
     "xpath": {
-      "version": "0.0.24",
-      "resolved": "https://registry.npmjs.org/xpath/-/xpath-0.0.24.tgz",
-      "integrity": "sha1-Gt4WLhzFI8jTn8fQavwW6iFvKfs=",
+      "version": "0.0.25",
+      "resolved": "https://registry.npmjs.org/xpath/-/xpath-0.0.25.tgz",
+      "integrity": "sha512-D6UFF5YORxtDXdQmI6cZKwx+ggM5GZQlQb77kpAAI+iv4XTNo5Qcn5+aAfJg0Ad0cQpsWej/Dp1b8QFIoJZVJQ==",
       "dev": true
     },
     "xtend": {
