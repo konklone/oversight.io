@@ -1342,9 +1342,9 @@
       }
     },
     "http-aws-es": {
-      "version": "3.1.3",
-      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-3.1.3.tgz",
-      "integrity": "sha512-4GzDrHYUdaPUYKn3/kHT990Lwfjy4NGyo7MbpbsHltBoZlL24fSZGgioffcYsxID49qxkMQnu6v2F+lFSWGbLg=="
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-4.0.0.tgz",
+      "integrity": "sha512-5OJVj9/JSNOVFgIOnBK+9fwDePd35PF1odskYjp/aqstuurZy1XdmHoDP+wPE5LH9Pe/TasIJyARyH7aJnLh/A=="
     },
     "http-errors": {
       "version": "1.6.2",
