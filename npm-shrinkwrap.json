@@ -128,12 +128,11 @@
       "dev": true
     },
     "aws-sdk": {
-      "version": "2.149.0",
-      "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.149.0.tgz",
-      "integrity": "sha1-dvU3Iqd4C9sxkeg/J8EBCMb+mBM=",
+      "version": "2.193.0",
+      "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.193.0.tgz",
+      "integrity": "sha1-iaw73h/2yRTFL38MKKL+vyPt+qU=",
       "requires": {
         "buffer": "4.9.1",
-        "crypto-browserify": "1.0.9",
         "events": "1.1.1",
         "jmespath": "0.15.0",
         "querystring": "0.2.0",
@@ -417,11 +416,6 @@
           }
         }
       }
-    },
-    "crypto-browserify": {
-      "version": "1.0.9",
-      "resolved": "https://registry.npmjs.org/crypto-browserify/-/crypto-browserify-1.0.9.tgz",
-      "integrity": "sha1-zFRJaF37hesRyYKKzHy4erW7/MA="
     },
     "css": {
       "version": "2.2.1",
@@ -1515,9 +1509,9 @@
       }
     },
     "moment": {
-      "version": "2.19.2",
-      "resolved": "https://registry.npmjs.org/moment/-/moment-2.19.2.tgz",
-      "integrity": "sha512-Rf6jiHPEfxp9+dlzxPTmRHbvoFXsh2L/U8hOupUMpnuecHQmI6cF6lUbJl3QqKPko1u6ujO+FxtcajLVfLpAtA=="
+      "version": "2.20.1",
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.20.1.tgz",
+      "integrity": "sha512-Yh9y73JRljxW5QxN08Fner68eFLxM5ynNOAw2LbIB1YAGeQzZT8QFSUvkAz609Zf+IHhhaUxqZK8dG3W/+HEvg=="
     },
     "ms": {
       "version": "2.0.0",
