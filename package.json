@@ -34,7 +34,7 @@
     "aws-sdk": "^2.192.0",
     "body-parser": "^1.17.1",
     "ejs": "^2.5.5",
-    "elasticsearch": "^13.1.1",
+    "elasticsearch": "^14.0.0",
     "errorhandler": "^1.4.3",
     "express": "^4.15.3",
     "glob": "^7.0.5",
