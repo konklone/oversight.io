@@ -43,9 +43,9 @@ class LetsEncryptRoute53
       request_dns_verification(challenge)
     end
     csr = generate_certificate_signing_request
-    certificate = request_certificate(order, csr)
-    write_certificate(certificate)
-    upload_certificate(certificate)
+    request_certificate(order, csr)
+    write_certificate(order, csr)
+    upload_certificate(order, csr)
     order.authorizations.each do |authorization|
       domain = authorization.domain
       challenge = authorization.dns
@@ -133,42 +133,46 @@ class LetsEncryptRoute53
     say 'requesting certificate' do
       order.finalize(csr: csr)
       sleep(1) while order.status == 'processing'
-      order.certificate
     end
   end
 
-  def write_certificate(certificate)
+  def write_certificate(order, csr)
     require_attrs! :path_privkey, :path_cert, :path_chain, :path_fullchain
 
-    File.write(path_privkey, certificate.request.private_key.to_pem)
-    File.write(path_cert, certificate.to_pem)
-    File.write(path_chain, certificate.chain_to_pem)
-    File.write(path_fullchain, certificate.fullchain_to_pem)
+    File.write(path_privkey, csr.private_key.to_pem)
+    fullchain = order.certificate
+    cert, chain = fullchain.split(/(?<=-----END CERTIFICATE-----)/, 2).map(&:strip)
+    File.write(path_cert, cert)
+    File.write(path_chain, chain)
+    File.write(path_fullchain, fullchain)
   end
 
-  def upload_certificate(certificate)
+  def upload_certificate(order, csr)
     require_attrs! :s3_bucket, :s3_key_privkey, :s3_key_cert, :s3_key_chain,\
                    :s3_key_fullchain, :kms_key_id
+
+    fullchain = order.certificate
+    cert, chain = fullchain.split(/(?<=-----END CERTIFICATE-----)/, 2).map(&:strip)
 
     s3_encryption.put_object(
       bucket: s3_bucket,
       key: s3_key_privkey,
-      body: certificate.request.private_key.to_pem
+      body: csr.private_key.to_pem
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_cert,
-      body: certificate.to_pem
+      body: cert
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_chain,
-      body: certificate.chain_to_pem
+      body: chain
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_fullchain,
-      body: certificate.fullchain_to_pem
+      body: fullchain
     )
   end
 
