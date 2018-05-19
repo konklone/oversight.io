@@ -1391,9 +1391,9 @@
       }
     },
     "http-aws-es": {
-      "version": "4.0.0",
-      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-4.0.0.tgz",
-      "integrity": "sha512-5OJVj9/JSNOVFgIOnBK+9fwDePd35PF1odskYjp/aqstuurZy1XdmHoDP+wPE5LH9Pe/TasIJyARyH7aJnLh/A=="
+      "version": "6.0.0",
+      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-6.0.0.tgz",
+      "integrity": "sha512-g+qp7J110/m4aHrR3iit4akAlnW0UljZ6oTq/rCcbsI8KP9x+95vqUtx49M2XQ2JMpwJio3B6gDYx+E8WDxqiA=="
     },
     "http-errors": {
       "version": "1.6.3",
