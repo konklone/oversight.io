@@ -40,7 +40,7 @@
     "glob": "^7.0.5",
     "http-aws-es": "^6.0.0",
     "js-yaml": "^3.5.2",
-    "method-override": "^2.3.5",
+    "method-override": "^3.0.0",
     "minimist": "^1.2.0",
     "moment": "^2.20.1",
     "numeral": "^2.0.1",
