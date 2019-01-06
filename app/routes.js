@@ -152,6 +152,10 @@ module.exports = function(app) {
 
       var noindex = noindexed(result._source);
 
+      // It's in a <meta> tag as well, but just to be thorough.
+      if (noindex)
+        res.set("X-Robots-Tag", "noindex");
+
       res.render("report.html", {
         report: result._source,
         noindex: noindex
