@@ -2,7 +2,8 @@
 # This is a list of reports for which we've received polite requests to have them
 # removed from search indexes. We still want these reports to be visible to our users
 # and come up in response to search requests within oversight.garden, but we are
-# sympathetic to the impact of people's names attached to negative events in their past.
+# sympathetic to the impact of people's names attached to negative events in their past
+# being indexed in popular search engines indefinitely.
 #
 # We implement this using the "noindex" <meta> tag in the HTML rendering of individual
 # reports. It is ultimately up to consuming crawlers to honor this tag, but major search
