@@ -239,7 +239,7 @@ module.exports = function(app) {
  * Boolean answer for whether this report should be noindex'd.
  */
 function noindexed(report) {
-  return !!(helpers.noindex[report.inspector + "-" + report.report_id])
+  return !!(helpers.noindex[report.inspector + "-" + report.report_id]);
 }
 
 /* Parses query string parameters from a search request, and returns an object
